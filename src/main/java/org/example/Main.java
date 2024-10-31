@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.Scanner;
 
 public class Main {
@@ -23,19 +25,23 @@ public class Main {
         stroka = scanner1.nextLine();
         Palindrom(stroka);
     }
-    public static void fizzbuzz(int a){
-        if (a % 5 == 0 && a % 7 == 0) System.out.println("fizzbuzz");
-        else if (a % 5 == 0) System.out.println("fizz");
-        else if (a % 7 == 0) System.out.println("buzz");
+
+    public static String fizzbuzz(int a){
+        if (a % 5 == 0 && a % 7 == 0) return ("fizzbuzz");
+        else if (a % 5 == 0) return ("fizz");
+        else if (a % 7 == 0) return ("buzz");
+
+        return String.valueOf(a);
     }
 
-    public static void ReversedString(int a, String str){
+    public static String ReversedString(int a, String str){
         for (int i=a-1; i>=0; i--)
             System.out.print(str.charAt(i));
         System.out.println();
+        return String.valueOf(a);
     }
 
-    public  static void SquareSolver (double a,double b,double c){
+    public static String SquareSolver (double a, double b, double c){
         double D;
         D = b * b - 4 * a * c;
         if (D > 0) {
@@ -54,9 +60,10 @@ public class Main {
         } else if (D < 0) {
             System.out.println("There are no roots! (Нет корней!)");
         }
+        return String.valueOf(D);
     }
 
-    public static void SummaRuada(double n) {
+    public static double SummaRuada(double n) {
         double Summa = 0;
         while (true) {
             if (1 / (n * n + n-2) > 1e-6){
@@ -66,9 +73,10 @@ public class Main {
             else break;
         }
         System.out.println(Summa);
+        return Summa;
     }
 
-    public static void Palindrom(String stroka){
+    public static boolean Palindrom(String stroka){
         boolean f = false;
         for (int i = 0; i < stroka.length() / 2; i++) {
             if (stroka.charAt(i) != stroka.charAt(stroka.length()-i-1)) f = false;
@@ -77,5 +85,6 @@ public class Main {
         }
         if (f == false) System.out.println("It's not a palindrom:(");
         else System.out.println("That string is a palindrom!");
+        return f;
     }
 }
